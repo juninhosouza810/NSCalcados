@@ -184,9 +184,10 @@
             let y = 10;
             
             document.querySelectorAll('.produto').forEach((produto, index) => {
-                const nome = produto.querySelector('p:nth-child(1)').innerText;
-                const preco = produto.querySelector('p:nth-child(2)').innerText;
-                const codigo = produto.querySelector('p:nth-child(3)').innerText;
+                const detalhes = produto.querySelectorAll('div p');
+                const nome = detalhes[0]?.innerText || '';
+                const preco = detalhes[1]?.innerText || '';
+                const codigo = detalhes[2]?.innerText || '';
                 const imgSrc = produto.querySelector('img').src;
                 
                 doc.addImage(imgSrc, 'JPEG', 10, y, 40, 40);
